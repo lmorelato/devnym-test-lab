@@ -21,7 +21,7 @@ namespace NyTO.Test.Code
 
             Exterminator.Exterminate(list, target);
 
-            //Assert.DoesNotContain(target, list.ToArray());
+            Assert.DoesNotContain(target, list.ToArray());
         }
 
         /// <summary>
