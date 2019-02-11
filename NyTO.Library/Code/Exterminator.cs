@@ -33,8 +33,8 @@ namespace NyTO.Library.Code
         }
 
         /// <summary>
-        /// In this version, once we find the value to be deleted we also decrement the index,
-        /// ensuring  that we will go through all items in the collection
+        /// Assuming that we can't use a generic List we can iterate the collection backwards so we don't need to
+        /// do additional processing in the index
         /// </summary>
         /// <param name="values"></param>
         /// <param name="value"></param>
@@ -42,13 +42,11 @@ namespace NyTO.Library.Code
         {
             if (values == null) throw new ArgumentNullException(nameof(values));
 
-            for (var i = 0; i < values.Count; i++)
+            for (var i = values.Count - 1; i >= 0; i--)
             {
                 if (values[i].Equals(value))
                 {
                     values.RemoveAt(i);
-                    // as we are removing from a list we need to go back the index
-                    i--; 
                 }
             }
 
